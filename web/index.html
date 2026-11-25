@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Watch a neon square spiral draw itself pixel by pixel in WebAssembly, or download the 8086 DOS edition.">
+  <title>Spiral Draw ASM</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body data-layout="spiral-draw-asm">
+<main>
+  <header class="spiral-heading">
+    <div>
+      <h1>Spiral Draw <span>ASM</span></h1>
+      <p>Watch a square spiral grow from the center, one pixel at a time.</p>
+    </div>
+    <a href="https://github.com/netcodermike/spiral-draw-asm">View source <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <div class="spiral-workspace">
+    <section class="panel stage spiral-view" aria-label="Square spiral animation">
+      <canvas id="spiral-canvas" width="320" height="200" role="img"
+        aria-label="A multicolored square spiral grows outward from the center of a black screen.">
+        A multicolored square spiral grows outward from the center of a black screen.
+      </canvas>
+      <div class="playback">
+        <p id="spiral-status" role="status">Loading the animation…</p>
+        <div class="playback-actions">
+          <button id="spiral-toggle" type="button" disabled>Pause</button>
+          <button id="spiral-replay" type="button" class="primary" disabled>Replay</button>
+        </div>
+      </div>
+      <noscript><p>Enable JavaScript to view the animation or download the DOS edition.</p></noscript>
+    </section>
+
+    <aside class="panel spiral-details">
+      <h2>How it draws</h2>
+      <p>The line turns right at each corner, changes color, and grows longer every two turns. WebAssembly writes each pixel into a 320 × 200 framebuffer.</p>
+      <div class="dos-edition">
+        <h2>8086 DOS edition</h2>
+        <p>Run the assembly original in DOSBox. Press Space to replay or Esc to exit.</p>
+        <a class="download" href="./spiral-dos.zip" download="spiral-dos.zip">Download Now! <span aria-hidden="true">↓</span></a>
+      </div>
+    </aside>
+  </div>
+</main>
+</body>
+</html>
